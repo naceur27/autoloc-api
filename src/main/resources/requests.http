@@ -1,0 +1,21 @@
+### Créer un véhicule
+POST http://127.0.0.1:8081/api/vehicules
+Content-Type: application/json
+
+{
+  "immatriculation": "123TN456",
+  "marque": "Toyota",
+  "modele": "Yaris",
+  "categorie": "CITADINE",
+  "tarifJournalier": 80.00,
+  "statut": "DISPONIBLE"
+}
+
+### Voir tous les véhicules
+GET http://127.0.0.1:8081/api/vehicules
+
+### Voir un véhicule par ID
+GET http://127.0.0.1:8081/api/vehicules/1
+
+### Supprimer un véhicule
+DELETE http://127.0.0.1:8081/api/vehicules/1
