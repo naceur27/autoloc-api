@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.domain;
 
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,4 +29,7 @@ public class Employe {
     private String prenom;
 
     private RoleEmploye role;
+
+    @ManyToOne
+    private Agence agence;
 }

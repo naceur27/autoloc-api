@@ -1,11 +1,12 @@
 package tn.esprit.autoloc.domain;
-
+import jakarta.persistence.OneToMany;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,10 @@ public class Contrat {
     private Double montantTotal;
 
     private Boolean valide;
+
+    @OneToOne
+    private Reservation reservation;
+
+    @OneToMany(mappedBy = "contrat")
+    private List<Paiement> paiements;
 }

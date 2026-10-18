@@ -1,5 +1,7 @@
 package tn.esprit.autoloc.domain;
 
+import jakarta.persistence.ManyToOne;
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,4 +41,16 @@ public class Vehicule {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private StatutVehicule statut;
+
+    @ManyToOne
+    private Agence agence;
+
+    @ManyToMany
+    private List<Equipement> equipements;
+
+    @OneToMany(mappedBy = "vehicule")
+    private List<Maintenance> maintenances;
+
+    @OneToMany(mappedBy = "vehicule")
+    private List<Reservation> reservations;
 }
